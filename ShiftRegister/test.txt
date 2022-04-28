@@ -1,0 +1,41 @@
+mode 00 test:
+
+force sim:/shift_reg/rst 1 0, 0 20ns
+force -freeze sim:/shift_reg/clk 1 0, 0 {5 ns} -r 10000
+force -freeze sim:/shift_reg/serial_in 1 0
+force -freeze sim:/shift_reg/mode 00 0
+run 200000
+
+
+
+mode 01 test:
+
+force sim:/shift_reg/rst 1 0, 0 20ns
+force -freeze sim:/shift_reg/clk 1 0, 0 {5 ns} -r 10000
+force -freeze sim:/shift_reg/serial_in 1 0
+force -freeze sim:/shift_reg/mode 01 0
+run 200000
+
+
+
+mode 10 test:
+
+force sim:/shift_reg/rst 1 0, 0 20ns
+force -freeze sim:/shift_reg/clk 1 0, 0 {5 ns} -r 10000
+force -freeze sim:/shift_reg/serial_in 1 0
+force -freeze sim:/shift_reg/mode 01 0
+run 40ns
+force -freeze sim:/shift_reg/mode 10 0
+run 400ns
+
+
+
+mode 11 test:
+
+force sim:/shift_reg/rst 1 0, 0 20ns
+force -freeze sim:/shift_reg/clk 1 0, 0 {5 ns} -r 10000
+force -freeze sim:/shift_reg/serial_in 1 0
+force -freeze sim:/shift_reg/mode 01 0
+run 40ns
+force -freeze sim:/shift_reg/mode 11 0
+run 400ns
